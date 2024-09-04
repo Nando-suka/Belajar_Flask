@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipher Encryption/Decryption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1><center> Cipher Encryption/Decryption </center></h1>
+
+        <!-- Caesar Cipher Card -->
+        <div class="card">
+            <h2>Caesar Cipher</h2>
+            <form method="post">
+                <div class="form-group">
+                    <label for="caesar_text">Enter Text:</label>
+                    <input type="text" id="caesar_text" name="caesar_text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="caesar_shift">Shift (0-25):</label>
+                    <input type="number" id="caesar_shift" name="caesar_shift" min="0" max="25">
+                </div>
+
+                <div class="form-group">
+                    <label for="caesar_operation">Operation:</label>
+                    <select id="caesar_operation" name="caesar_operation" required>
+                        <option value="encrypt">Encrypt</option>
+                        <option value="decrypt">Decrypt</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" name="caesar_submit" value="Submit">
+                </div>
+            </form>
+
+            {% if caesar_result %}
+            <div class="result">
+                <h3>Caesar Cipher Result:</h3>
+                <p>{{ caesar_result }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Vigenere Cipher Card -->
+        <div class="card">
+            <h2>Vigenere Cipher</h2>
+            <form method="post">
+                <div class="form-group">
+                    <label for="vigenere_text">Enter Text:</label>
+                    <input type="text" id="vigenere_text" name="vigenere_text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vigenere_key">Key:</label>
+                    <input type="text" id="vigenere_key" name="vigenere_key" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vigenere_operation">Operation:</label>
+                    <select id="vigenere_operation" name="vigenere_operation" required>
+                        <option value="encrypt">Encrypt</option>
+                        <option value="decrypt">Decrypt</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" name="vigenere_submit" value="Submit">
+                </div>
+            </form>
+
+            {% if vigenere_result %}
+            <div class="result">
+                <h3>Vigenere Cipher Result:</h3>
+                <p>{{ vigenere_result }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
